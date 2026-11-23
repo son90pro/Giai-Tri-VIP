@@ -1,0 +1,3 @@
+#EXTM3U url-tvg="https://epg.io.vn/epgc.xml"
+#EXTINF:-1 group-title="🔄 Cập nhật: 09:45 23/11/2026",TRUYỀN HÌNH - Auto Update GitHub
+http://localhost/update.m3u8
