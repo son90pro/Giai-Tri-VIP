@@ -1,22 +1,6 @@
 #EXTM3U url-tvg="https://epg.io.vn/epgc.xml"
-#EXTINF:-1 group-title="🔄 Cập nhật: 10:01 23/11/2026",TỔNG HỢP - Auto Update GitHub
+#EXTINF:-1 group-title="🔄 Cập nhật: 10:13 23/11/2026",TỔNG HỢP - Auto Update GitHub
 http://localhost/update.m3u8
-#EXTINF:-1 group-title="⚽ THỂ THAO | S8 TV",Attempt 1
-https://media.lauthaitv.site/hls/0bc66438-7265-48e5-ab7b-5ce3728157c3/attempt-1/master.m3u8
-#EXTINF:-1 group-title="⚽ THỂ THAO | S8 TV",Attempt 1
-https://media.lauthaitv.site/hls/f0177710-5a62-4c9b-9cef-a49ec324c8c3/attempt-1/master.m3u8
-#EXTINF:-1 group-title="⚽ THỂ THAO | S8 TV",Attempt 1
-https://media.lauthaitv.site/hls/5f1f9b6d-dca6-49ec-92c8-a802495b3f33/attempt-1/master.m3u8
-#EXTINF:-1 group-title="⚽ THỂ THAO | S8 TV",Attempt 1
-https://media.lauthaitv.site/hls/4d464b48-52e1-40d9-b34c-142e7f48fbb0/attempt-1/master.m3u8
-#EXTINF:-1 group-title="⚽ THỂ THAO | S8 TV",Attempt 1
-https://media.lauthaitv.site/hls/befb0ecf-adab-4e1e-ae60-d5f3e3fca2da/attempt-1/master.m3u8
-#EXTINF:-1 group-title="⚽ THỂ THAO | S8 TV",Attempt 1
-https://media.lauthaitv.site/hls/4e1188e7-7597-411f-8426-c8547259733b/attempt-1/master.m3u8
-#EXTINF:-1 group-title="⚽ THỂ THAO | S8 TV",Quere Necaxa Mexliga
-https://hls.lauthaitv.cc/live/quere-necaxa-mexliga/index.m3u8
-#EXTINF:-1 group-title="⚽ THỂ THAO | S8 TV",Attempt 1
-https://media.lauthaitv.site/hls/0542ad8d-1129-454e-b8e1-56e2852582ea/attempt-1/master.m3u8
 #EXTINF:-1 tvg-id="tvbvn" group-title="📺 TRUYỀN HÌNH | TVB" tvg-logo="https://tvbaw-na.s3.us-west-1.amazonaws.com/hb/TVB%20Vietnam%20Banner_Side.jpg",TVB VIỆT NAM
 https://amg01868-amg01868c3-tvbanywhere-us-4491.playouts.now.amagi.tv/playlist1080p.m3u8
 #EXTINF:-1 group-title="📺 TRUYỀN HÌNH | LIVE EVENTS 🔴" tvg-logo="https://daknong.1cdn.vn/2025/02/06/den-am-hon-review-phim-va-lich-chieu-tai-viet-nam.jpg",Đèn Âm Hồn: Người Con Gái Nam Xương
