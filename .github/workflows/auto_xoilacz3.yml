@@ -1,0 +1,32 @@
+name: Auto Update XoilacZ3 M3U
+
+on:
+  schedule:
+    # Tự động chạy mỗi 1 tiếng (vào phút thứ 15 mỗi giờ)
+    - cron: '15 * * * *'
+  workflow_dispatch: # Cho phép bấm nút chạy tay bất cứ lúc nào
+
+permissions:
+  contents: write
+
+jobs:
+  update-playlist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run M3U splitter script
+        run: python update_xoilacz3.py
+
+      - name: Commit and push updated M3U files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add truyen_hinh.m3u the_thao.m3u tong_hop_xoilacz3.m3u
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update M3U playlists" && git push)
