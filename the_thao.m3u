@@ -1,25 +1,19 @@
 #EXTM3U url-tvg="https://epg.io.vn/epgc.xml"
-#EXTINF:-1 group-title="🔄 Cập nhật: 09:49 23/11/2026",THỂ THAO - Auto Update GitHub
+#EXTINF:-1 group-title="🔄 Cập nhật: 09:55 23/11/2026",THỂ THAO - Auto Update GitHub
 http://localhost/update.m3u8
-#EXTINF:-1 group-title="Khác",Xôi Lạc TV
-https://xoilaczda.tv/
-#EXTINF:-1 group-title="Khác",Giờ Vàng TV
-https://giovang.gold
-#EXTINF:-1 group-title="Khác",Khô Gà TV
-https://khoga1.live/
-#EXTINF:-1 group-title="Khác",Chuối Chiên TV
-https://live12.chuoichientv.me/
-#EXTINF:-1 group-title="Khác",Sao Kê TV
-https://saoketv1.cc/
-#EXTINF:-1 group-title="Khác",Sút Bóng TV
-https://sutbongvtv.com/
-#EXTINF:-1 group-title="Khác",Phá Làng TV
-https://phalang.com/
-#EXTINF:-1 group-title="Khác",Gà Vàng 33 TV
-https://gavang33.gg/
-#EXTINF:-1 group-title="Khác",Xôi Gấc TV
-https://xoigac.top/
-#EXTINF:-1 group-title="Khác",Gà Vàng 24H
-https://gavangz.link/
-#EXTINF:-1 group-title="Khác",Ném Biên TV
-https://nembientv.com/
+#EXTINF:-1 group-title="S8 TV",Luồng phát #1
+https://hls.lauthaitv.cc/live/quere-necaxa-mexliga/index.m3u8
+#EXTINF:-1 group-title="S8 TV",Luồng phát #2
+https://media.lauthaitv.site/hls/0542ad8d-1129-454e-b8e1-56e2852582ea/attempt-1/master.m3u8
+#EXTINF:-1 group-title="S8 TV",Luồng phát #3
+https://media.lauthaitv.site/hls/0bc66438-7265-48e5-ab7b-5ce3728157c3/attempt-1/master.m3u8
+#EXTINF:-1 group-title="S8 TV",Luồng phát #4
+https://media.lauthaitv.site/hls/f0177710-5a62-4c9b-9cef-a49ec324c8c3/attempt-1/master.m3u8
+#EXTINF:-1 group-title="S8 TV",Luồng phát #5
+https://media.lauthaitv.site/hls/5f1f9b6d-dca6-49ec-92c8-a802495b3f33/attempt-1/master.m3u8
+#EXTINF:-1 group-title="S8 TV",Luồng phát #6
+https://media.lauthaitv.site/hls/4d464b48-52e1-40d9-b34c-142e7f48fbb0/attempt-1/master.m3u8
+#EXTINF:-1 group-title="S8 TV",Luồng phát #7
+https://media.lauthaitv.site/hls/befb0ecf-adab-4e1e-ae60-d5f3e3fca2da/attempt-1/master.m3u8
+#EXTINF:-1 group-title="S8 TV",Luồng phát #8
+https://media.lauthaitv.site/hls/4e1188e7-7597-411f-8426-c8547259733b/attempt-1/master.m3u8
