@@ -1,5 +1,5 @@
 #EXTM3U url-tvg="https://epg.io.vn/epgc.xml"
-#EXTINF:-1 group-title="🔄 Cập nhật: 09:55 23/11/2026",TRUYỀN HÌNH - Auto Update GitHub
+#EXTINF:-1 group-title="🔄 Cập nhật: 10:01 23/11/2026",TRUYỀN HÌNH - Auto Update GitHub
 http://localhost/update.m3u8
 #EXTINF:-1 tvg-id="tvbvn" group-title="TVB" tvg-logo="https://tvbaw-na.s3.us-west-1.amazonaws.com/hb/TVB%20Vietnam%20Banner_Side.jpg",TVB VIỆT NAM
 https://amg01868-amg01868c3-tvbanywhere-us-4491.playouts.now.amagi.tv/playlist1080p.m3u8

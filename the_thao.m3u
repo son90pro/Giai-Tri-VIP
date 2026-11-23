@@ -1,19 +1,19 @@
 #EXTM3U url-tvg="https://epg.io.vn/epgc.xml"
-#EXTINF:-1 group-title="🔄 Cập nhật: 09:55 23/11/2026",THỂ THAO - Auto Update GitHub
+#EXTINF:-1 group-title="🔄 Cập nhật: 10:01 23/11/2026",THỂ THAO - Auto Update GitHub
 http://localhost/update.m3u8
-#EXTINF:-1 group-title="S8 TV",Luồng phát #1
-https://hls.lauthaitv.cc/live/quere-necaxa-mexliga/index.m3u8
-#EXTINF:-1 group-title="S8 TV",Luồng phát #2
-https://media.lauthaitv.site/hls/0542ad8d-1129-454e-b8e1-56e2852582ea/attempt-1/master.m3u8
-#EXTINF:-1 group-title="S8 TV",Luồng phát #3
+#EXTINF:-1 group-title="S8 TV",Attempt 1
 https://media.lauthaitv.site/hls/0bc66438-7265-48e5-ab7b-5ce3728157c3/attempt-1/master.m3u8
-#EXTINF:-1 group-title="S8 TV",Luồng phát #4
+#EXTINF:-1 group-title="S8 TV",Attempt 1
 https://media.lauthaitv.site/hls/f0177710-5a62-4c9b-9cef-a49ec324c8c3/attempt-1/master.m3u8
-#EXTINF:-1 group-title="S8 TV",Luồng phát #5
+#EXTINF:-1 group-title="S8 TV",Attempt 1
 https://media.lauthaitv.site/hls/5f1f9b6d-dca6-49ec-92c8-a802495b3f33/attempt-1/master.m3u8
-#EXTINF:-1 group-title="S8 TV",Luồng phát #6
+#EXTINF:-1 group-title="S8 TV",Attempt 1
 https://media.lauthaitv.site/hls/4d464b48-52e1-40d9-b34c-142e7f48fbb0/attempt-1/master.m3u8
-#EXTINF:-1 group-title="S8 TV",Luồng phát #7
+#EXTINF:-1 group-title="S8 TV",Attempt 1
 https://media.lauthaitv.site/hls/befb0ecf-adab-4e1e-ae60-d5f3e3fca2da/attempt-1/master.m3u8
-#EXTINF:-1 group-title="S8 TV",Luồng phát #8
+#EXTINF:-1 group-title="S8 TV",Attempt 1
 https://media.lauthaitv.site/hls/4e1188e7-7597-411f-8426-c8547259733b/attempt-1/master.m3u8
+#EXTINF:-1 group-title="S8 TV",Quere Necaxa Mexliga
+https://hls.lauthaitv.cc/live/quere-necaxa-mexliga/index.m3u8
+#EXTINF:-1 group-title="S8 TV",Attempt 1
+https://media.lauthaitv.site/hls/0542ad8d-1129-454e-b8e1-56e2852582ea/attempt-1/master.m3u8
