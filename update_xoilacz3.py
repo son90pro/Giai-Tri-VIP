@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 
 SOURCE_URL = "https://pub-5ead3f4154b54b7d8fb7e59d5ce390d1.r2.dev/xoilac.json"
 
-# Thứ tự ưu tiên các nhóm Truyền Hình (khớp không phân biệt hoa/thường và dấu)
+# Thứ tự ưu tiên các nhóm Truyền Hình
 TV_PRIORITY_GROUPS = [
     ["vtv"],
     ["vtv cab", "vtvcab"],
@@ -34,18 +34,28 @@ def clean_group_name(grp):
     return g if g else "Khác"
 
 
+def is_vtv_prime_group(g_low):
+    return any(k in g_low for k in ["vtv prime", "vtvprime", "sự kiện vtv", "su kien vtv"])
+
+
 def get_tv_group_priority(group_name):
     """
-    Trả về (rank_index, sub_order) để sắp xếp:
-    0..5: Các nhóm ưu tiên theo đúng thứ tự VTV, VTVCAB, SCTV, HTV, HCTV/HTVC, ĐỊA PHƯƠNG
-    6: Các nhóm còn lại
+    Trả về (rank_index, sub_order):
+    - 0..5: Nhóm ưu tiên (VTV, VTVCAB, SCTV, HTV, HTVC/HCTV, ĐỊA PHƯƠNG)
+    - 6: Các nhóm thường khác
+    - 7: Nhóm Sự Kiện VTVPrime (đẩy xuống dưới cùng sau các mục ưu tiên & nhóm thường)
     """
     g_low = re.sub(r"\s+", " ", (group_name or "").strip().lower())
 
+    if is_vtv_prime_group(g_low):
+        return (len(TV_PRIORITY_GROUPS) + 1, g_low)
+
     for idx, keywords in enumerate(TV_PRIORITY_GROUPS):
-        # Xử lý riêng cho "htv" để không nhầm với "htvc" khi xếp nhóm HTV
-        if keywords == ["htv"]:
-            if re.search(r"\bhtv\b", g_low) and "htvc" not in g_low:
+        if keywords == ["vtv"]:
+            if re.search(r"\bvtv\b", g_low) and not is_vtv_prime_group(g_low) and "vtvcab" not in g_low and "vtv cab" not in g_low:
+                return (idx, g_low)
+        elif keywords == ["htv"]:
+            if re.search(r"\bhtv\b", g_low) and "htvc" not in g_low and "hctv" not in g_low:
                 return (idx, g_low)
         else:
             if any(kw in g_low for kw in keywords):
@@ -92,7 +102,6 @@ def parse_tv_m3u(m3u_text):
             extinf = None
             extras = []
 
-    # Sắp xếp danh sách kênh Truyền Hình theo thứ tự ưu tiên nhóm
     tv_items.sort(key=lambda item: get_tv_group_priority(item[0]))
     return tv_items
 
@@ -157,7 +166,7 @@ def main():
         combined.append((grp, new_ext, exs, u))
 
     write_m3u("tong_hop_xoilacz3.m3u", combined, "TỔNG HỢP")
-    print(f"Xong! Truyền hình: {len(tv_items)} kênh (đã xếp nhóm ưu tiên) | Thể thao: {len(sports_items)} trận/luồng.")
+    print(f"Xong! Truyền hình: {len(tv_items)} kênh | Thể thao: {len(sports_items)} trận/luồng.")
 
 
 if __name__ == "__main__":
