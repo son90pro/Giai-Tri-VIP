@@ -1,10 +1,19 @@
 import json
 import re
-import urllib.parse
 import urllib.request
 from datetime import datetime, timezone, timedelta
 
 SOURCE_URL = "https://pub-5ead3f4154b54b7d8fb7e59d5ce390d1.r2.dev/xoilac.json"
+
+# Thứ tự ưu tiên các nhóm Truyền Hình (khớp không phân biệt hoa/thường và dấu)
+TV_PRIORITY_GROUPS = [
+    ["vtv"],
+    ["vtv cab", "vtvcab"],
+    ["sctv"],
+    ["htv"],
+    ["htvc", "hctv"],
+    ["địa phương", "dia phuong", "tỉnh", "tinh"],
+]
 
 
 def fetch_text(url, referer=None, timeout=15):
@@ -23,6 +32,26 @@ def fetch_text(url, referer=None, timeout=15):
 def clean_group_name(grp):
     g = re.sub(r"\s+", " ", (grp or "").strip())
     return g if g else "Khác"
+
+
+def get_tv_group_priority(group_name):
+    """
+    Trả về (rank_index, sub_order) để sắp xếp:
+    0..5: Các nhóm ưu tiên theo đúng thứ tự VTV, VTVCAB, SCTV, HTV, HCTV/HTVC, ĐỊA PHƯƠNG
+    6: Các nhóm còn lại
+    """
+    g_low = re.sub(r"\s+", " ", (group_name or "").strip().lower())
+
+    for idx, keywords in enumerate(TV_PRIORITY_GROUPS):
+        # Xử lý riêng cho "htv" để không nhầm với "htvc" khi xếp nhóm HTV
+        if keywords == ["htv"]:
+            if re.search(r"\bhtv\b", g_low) and "htvc" not in g_low:
+                return (idx, g_low)
+        else:
+            if any(kw in g_low for kw in keywords):
+                return (idx, g_low)
+
+    return (len(TV_PRIORITY_GROUPS), g_low)
 
 
 def parse_tv_m3u(m3u_text):
@@ -63,6 +92,8 @@ def parse_tv_m3u(m3u_text):
             extinf = None
             extras = []
 
+    # Sắp xếp danh sách kênh Truyền Hình theo thứ tự ưu tiên nhóm
+    tv_items.sort(key=lambda item: get_tv_group_priority(item[0]))
     return tv_items
 
 
@@ -86,19 +117,8 @@ def main():
     print("Đang tải JSON nguồn...")
     raw_json = fetch_text(SOURCE_URL, timeout=20)
     data = json.loads(raw_json)
-
-    # In cấu trúc chi tiết của xoilac.json để kiểm tra
-    print("Top-level keys:", list(data.keys()))
     providers = data.get("providers", [])
-    print(f"Tổng số providers: {len(providers)}")
-    for idx, prov in enumerate(providers):
-        if isinstance(prov, dict):
-            print(
-                f"Provider #{idx}: keys={list(prov.keys())} | "
-                f"id={prov.get('id')} | name={prov.get('name')} | url={prov.get('url')}"
-            )
 
-    # Lấy danh sách Truyền hình từ provider M3U
     tv_items = []
     sports_items = []
 
@@ -115,7 +135,6 @@ def main():
                 m3u_body = fetch_text(p_url, timeout=20)
                 tv_items = parse_tv_m3u(m3u_body)
         else:
-            # Nếu provider có sẵn danh sách trận/kênh dạng JSON hoặc M3U bên trong
             for key in ("matches", "streams", "channels", "items", "data"):
                 sub = prov.get(key)
                 if isinstance(sub, list):
@@ -138,7 +157,7 @@ def main():
         combined.append((grp, new_ext, exs, u))
 
     write_m3u("tong_hop_xoilacz3.m3u", combined, "TỔNG HỢP")
-    print(f"Xong! Truyền hình: {len(tv_items)} kênh | Thể thao: {len(sports_items)} trận/luồng.")
+    print(f"Xong! Truyền hình: {len(tv_items)} kênh (đã xếp nhóm ưu tiên) | Thể thao: {len(sports_items)} trận/luồng.")
 
 
 if __name__ == "__main__":
