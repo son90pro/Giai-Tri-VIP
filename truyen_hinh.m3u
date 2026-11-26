@@ -1,5 +1,5 @@
 #EXTM3U url-tvg="https://epg.io.vn/epgc.xml"
-#EXTINF:-1 group-title="🔄 Cập nhật: 22:40 25/11/2026",TRUYỀN HÌNH - Auto Update GitHub
+#EXTINF:-1 group-title="🔄 Cập nhật: 07:25 26/11/2026",TRUYỀN HÌNH - Auto Update GitHub
 http://localhost/update.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="VTV" tvg-logo="https://epg-images.vthanhchannel.workers.dev/image/2026-09-17/1.png?w=800&fit=scale-down&q=85",VTV1
 https://freem3u.xyz/api/live/play.m3u8?vid=2
